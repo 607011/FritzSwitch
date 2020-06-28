@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65002D4124A8C748003B6E7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D4024A8C748003B6E7A /* AppDelegate.swift */; };
+		65002D4324A8C748003B6E7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D4224A8C748003B6E7A /* ViewController.swift */; };
+		65002D4524A8C749003B6E7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65002D4424A8C749003B6E7A /* Assets.xcassets */; };
+		65002D4824A8C749003B6E7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65002D4624A8C749003B6E7A /* Main.storyboard */; };
+		65002D5424A8C749003B6E7A /* FritzSwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D5324A8C749003B6E7A /* FritzSwitchTests.swift */; };
+		65002D5F24A8C749003B6E7A /* FritzSwitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D5E24A8C749003B6E7A /* FritzSwitchUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65002D5024A8C749003B6E7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65002D3524A8C748003B6E7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65002D3C24A8C748003B6E7A;
+			remoteInfo = FritzSwitch;
+		};
+		65002D5B24A8C749003B6E7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65002D3524A8C748003B6E7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65002D3C24A8C748003B6E7A;
+			remoteInfo = FritzSwitch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65002D3D24A8C748003B6E7A /* FritzSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FritzSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65002D4024A8C748003B6E7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65002D4224A8C748003B6E7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65002D4424A8C749003B6E7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65002D4724A8C749003B6E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65002D4924A8C749003B6E7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65002D4A24A8C749003B6E7A /* FritzSwitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FritzSwitch.entitlements; sourceTree = "<group>"; };
+		65002D4F24A8C749003B6E7A /* FritzSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FritzSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65002D5324A8C749003B6E7A /* FritzSwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FritzSwitchTests.swift; sourceTree = "<group>"; };
+		65002D5524A8C749003B6E7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65002D5A24A8C749003B6E7A /* FritzSwitchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FritzSwitchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65002D5E24A8C749003B6E7A /* FritzSwitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FritzSwitchUITests.swift; sourceTree = "<group>"; };
+		65002D6024A8C749003B6E7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65002D3A24A8C748003B6E7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D4C24A8C749003B6E7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D5724A8C749003B6E7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65002D3424A8C748003B6E7A = {
+			isa = PBXGroup;
+			children = (
+				65002D3F24A8C748003B6E7A /* FritzSwitch */,
+				65002D5224A8C749003B6E7A /* FritzSwitchTests */,
+				65002D5D24A8C749003B6E7A /* FritzSwitchUITests */,
+				65002D3E24A8C748003B6E7A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65002D3E24A8C748003B6E7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65002D3D24A8C748003B6E7A /* FritzSwitch.app */,
+				65002D4F24A8C749003B6E7A /* FritzSwitchTests.xctest */,
+				65002D5A24A8C749003B6E7A /* FritzSwitchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65002D3F24A8C748003B6E7A /* FritzSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				65002D4024A8C748003B6E7A /* AppDelegate.swift */,
+				65002D4224A8C748003B6E7A /* ViewController.swift */,
+				65002D4424A8C749003B6E7A /* Assets.xcassets */,
+				65002D4624A8C749003B6E7A /* Main.storyboard */,
+				65002D4924A8C749003B6E7A /* Info.plist */,
+				65002D4A24A8C749003B6E7A /* FritzSwitch.entitlements */,
+			);
+			path = FritzSwitch;
+			sourceTree = "<group>";
+		};
+		65002D5224A8C749003B6E7A /* FritzSwitchTests */ = {
+			isa = PBXGroup;
+			children = (
+				65002D5324A8C749003B6E7A /* FritzSwitchTests.swift */,
+				65002D5524A8C749003B6E7A /* Info.plist */,
+			);
+			path = FritzSwitchTests;
+			sourceTree = "<group>";
+		};
+		65002D5D24A8C749003B6E7A /* FritzSwitchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65002D5E24A8C749003B6E7A /* FritzSwitchUITests.swift */,
+				65002D6024A8C749003B6E7A /* Info.plist */,
+			);
+			path = FritzSwitchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65002D3C24A8C748003B6E7A /* FritzSwitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65002D6324A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitch" */;
+			buildPhases = (
+				65002D3924A8C748003B6E7A /* Sources */,
+				65002D3A24A8C748003B6E7A /* Frameworks */,
+				65002D3B24A8C748003B6E7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FritzSwitch;
+			productName = FritzSwitch;
+			productReference = 65002D3D24A8C748003B6E7A /* FritzSwitch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65002D4E24A8C749003B6E7A /* FritzSwitchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65002D6624A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitchTests" */;
+			buildPhases = (
+				65002D4B24A8C749003B6E7A /* Sources */,
+				65002D4C24A8C749003B6E7A /* Frameworks */,
+				65002D4D24A8C749003B6E7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65002D5124A8C749003B6E7A /* PBXTargetDependency */,
+			);
+			name = FritzSwitchTests;
+			productName = FritzSwitchTests;
+			productReference = 65002D4F24A8C749003B6E7A /* FritzSwitchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65002D5924A8C749003B6E7A /* FritzSwitchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65002D6924A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitchUITests" */;
+			buildPhases = (
+				65002D5624A8C749003B6E7A /* Sources */,
+				65002D5724A8C749003B6E7A /* Frameworks */,
+				65002D5824A8C749003B6E7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65002D5C24A8C749003B6E7A /* PBXTargetDependency */,
+			);
+			name = FritzSwitchUITests;
+			productName = FritzSwitchUITests;
+			productReference = 65002D5A24A8C749003B6E7A /* FritzSwitchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65002D3524A8C748003B6E7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Oliver Lau";
+				TargetAttributes = {
+					65002D3C24A8C748003B6E7A = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					65002D4E24A8C749003B6E7A = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 65002D3C24A8C748003B6E7A;
+					};
+					65002D5924A8C749003B6E7A = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 65002D3C24A8C748003B6E7A;
+					};
+				};
+			};
+			buildConfigurationList = 65002D3824A8C748003B6E7A /* Build configuration list for PBXProject "FritzSwitch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65002D3424A8C748003B6E7A;
+			productRefGroup = 65002D3E24A8C748003B6E7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65002D3C24A8C748003B6E7A /* FritzSwitch */,
+				65002D4E24A8C749003B6E7A /* FritzSwitchTests */,
+				65002D5924A8C749003B6E7A /* FritzSwitchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65002D3B24A8C748003B6E7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65002D4524A8C749003B6E7A /* Assets.xcassets in Resources */,
+				65002D4824A8C749003B6E7A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D4D24A8C749003B6E7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D5824A8C749003B6E7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65002D3924A8C748003B6E7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65002D4324A8C748003B6E7A /* ViewController.swift in Sources */,
+				65002D4124A8C748003B6E7A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D4B24A8C749003B6E7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65002D5424A8C749003B6E7A /* FritzSwitchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65002D5624A8C749003B6E7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65002D5F24A8C749003B6E7A /* FritzSwitchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65002D5124A8C749003B6E7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65002D3C24A8C748003B6E7A /* FritzSwitch */;
+			targetProxy = 65002D5024A8C749003B6E7A /* PBXContainerItemProxy */;
+		};
+		65002D5C24A8C749003B6E7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65002D3C24A8C748003B6E7A /* FritzSwitch */;
+			targetProxy = 65002D5B24A8C749003B6E7A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65002D4624A8C749003B6E7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65002D4724A8C749003B6E7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65002D6124A8C749003B6E7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65002D6224A8C749003B6E7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		65002D6424A8C749003B6E7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FritzSwitch/FritzSwitch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = FritzSwitch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		65002D6524A8C749003B6E7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FritzSwitch/FritzSwitch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = FritzSwitch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		65002D6724A8C749003B6E7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				INFOPLIST_FILE = FritzSwitchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FritzSwitch.app/Contents/MacOS/FritzSwitch";
+			};
+			name = Debug;
+		};
+		65002D6824A8C749003B6E7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				INFOPLIST_FILE = FritzSwitchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FritzSwitch.app/Contents/MacOS/FritzSwitch";
+			};
+			name = Release;
+		};
+		65002D6A24A8C749003B6E7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				INFOPLIST_FILE = FritzSwitchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FritzSwitch;
+			};
+			name = Debug;
+		};
+		65002D6B24A8C749003B6E7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 64627RE2QD;
+				INFOPLIST_FILE = FritzSwitchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.fritzswitch.FritzSwitchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FritzSwitch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65002D3824A8C748003B6E7A /* Build configuration list for PBXProject "FritzSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65002D6124A8C749003B6E7A /* Debug */,
+				65002D6224A8C749003B6E7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65002D6324A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65002D6424A8C749003B6E7A /* Debug */,
+				65002D6524A8C749003B6E7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65002D6624A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65002D6724A8C749003B6E7A /* Debug */,
+				65002D6824A8C749003B6E7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65002D6924A8C749003B6E7A /* Build configuration list for PBXNativeTarget "FritzSwitchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65002D6A24A8C749003B6E7A /* Debug */,
+				65002D6B24A8C749003B6E7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65002D3524A8C748003B6E7A /* Project object */;
+}
