@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CommonCrypto
 @testable import FritzSwitch
 
 class FritzSwitchTests: XCTestCase {
@@ -19,9 +20,14 @@ class FritzSwitchTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testResponse() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let challenge = "1234567z"
+        let pwd = "äbc"
+        let response = makeFritzboxResponse(challenge: challenge, password: pwd)
+        XCTAssertNotNil(response)
+        XCTAssertEqual("\(challenge)-\(response ?? "")", "1234567z-9e224a41eeefa284df7bb0f26c2913e2")
     }
 
     func testPerformanceExample() {

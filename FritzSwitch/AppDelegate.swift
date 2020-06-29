@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  FritzSwitch
-//
-//  Created by Oliver Lau on 28.06.20.
-//  Copyright © 2020 Oliver Lau. All rights reserved.
-//
+// Copyright © 2020 Oliver Lau <oliver@ersatzworld.net>
 
 import Cocoa
 
