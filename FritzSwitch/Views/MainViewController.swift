@@ -50,7 +50,7 @@ class MainViewController: NSViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == Key.sid.rawValue {
             sid = change?[.newKey] as? String
-            if sid != NoSID {
+            if sid != nil && sid != NoSID {
                 showMain()
             }
         }

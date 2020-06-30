@@ -18,8 +18,6 @@ class LoginViewController: NSViewController {
     }
     private var sidIssued: Date? {
         didSet {
-            print("self.sidIssued = \(String(describing: self.sidIssued))")
-            print("self.sidIssued = \(dateFormatter.string(from: sidIssued ?? Date.distantPast))")
             UserDefaults.standard.set(dateFormatter.string(from: sidIssued ?? Date.distantPast), forKey: Key.sidIssued.rawValue)
         }
     }
@@ -48,7 +46,6 @@ class LoginViewController: NSViewController {
         let password = fritzboxPasswordTextField.stringValue
         disableUI()
         DispatchQueue.main.async {
-            NSLog("hostname = \"\(hostname)\", username = \"\(username)\", password = \"\(password)\"")
             checkCredentials(
                 hostname: hostname,
                 username: username,
@@ -72,7 +69,6 @@ class LoginViewController: NSViewController {
         super.viewDidLoad()
         if UserDefaults.standard.object(forKey: Key.sid.rawValue) != nil {
             sid = UserDefaults.standard.string(forKey: Key.sid.rawValue) ?? NoSID
-            NSLog("Last Session ID = \(sid ?? "<NONE>")")
         }
     }
 

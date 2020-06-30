@@ -4,39 +4,21 @@ import Cocoa
 import Foundation
 import SwiftyXMLParser
 
-class Switch {
-    var name: String?
-    var identifier: String?
-    var lock: String?
-    var deviceLock: String?
-    var isOn: Bool = false
-    var celsius: Double?
-    var power: Double?
-    var energy: Double?
-    var voltage: Double?
-    var present: String?
-    var mode: String?
-    var manufacturer: String?
-    var productname: String?
-    var fwversion: String?
-}
-
-extension Switch: CustomDebugStringConvertible {
-    var debugDescription: String {
-        return "\(String(describing: name)) \(String(describing: identifier)) \(String(describing: manufacturer)) \(String(describing: productname)) isOn=\(isOn)"
-    }
-}
-
 class DevicesViewController: NSViewController {
     @IBOutlet weak var switchCollectionView: NSCollectionView!
 
+    private let euroPerKWh: Double = 0.29
+    private let refreshInterval: TimeInterval = 30.0
     private var sid: String?
+    private var sidIssued: Date?
     private var hostname: String?
+    private var timer: Timer?
     private var switches: [Switch] = [] {
         didSet {
             switchCollectionView.reloadData()
         }
     }
+    private var switchButtons: [NSButton] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +26,40 @@ class DevicesViewController: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
+        timer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(refresh), userInfo: nil, repeats: true)
+        timer?.fire()
+    }
+
+    override func viewWillDisappear() {
+        timer?.invalidate()
+    }
+
+    @objc
+    fileprivate func refresh() {
         sid = UserDefaults.standard.string(forKey: Key.sid.rawValue)
+        sidIssued = dateFormatter.date(from: UserDefaults.standard.string(forKey: Key.sidIssued.rawValue) ?? "") ?? Date.distantPast
         hostname = UserDefaults.standard.string(forKey: Key.fritzboxHostname.rawValue) ?? NoSID
         loadDeviceListInfos()
+    }
+
+    @objc
+    fileprivate func switchClicked(_ sender: NSButton) {
+        if let hostname = hostname,
+            let sid = sid,
+            let ain = switches[sender.tag].identifier {
+            DispatchQueue.main.async {
+                toggleSwitch(
+                    hostname: hostname,
+                    ain: ain,
+                    sid: sid,
+                    onSuccess: { (isOn, ain) in
+                        if let idx = self.switches.firstIndex(where: { $0.identifier == ain }) {
+                            debugPrint(ain, isOn, idx)
+                        }
+                },
+                    onFailure: { (error, ain) in debugPrint(error, ain) })
+            }
+        }
     }
 
     fileprivate func loadDeviceListInfos() {
@@ -58,26 +71,31 @@ class DevicesViewController: NSViewController {
             onSuccess: { xml in
                 var foundSwitches: [Switch] = []
                 for device in xml.devicelist.device {
-                    if device.switch.error == nil {
-                        let sw = Switch()
-                        sw.name = device["name"].text
-                        sw.identifier = device.attributes["identifier"]
-                        sw.isOn = Int(device["switch"].state.text ?? "") == 1
+                    let sw = Switch()
+                    sw.functions = Int(device.attributes["functionbitmask"] ?? "") ?? 0
+                    sw.productname = device.attributes["productname"]
+                    sw.manufacturer = device.attributes["manufacturer"]
+                    sw.fwversion = device.attributes["fwversion"]
+                    sw.identifier = device.attributes["identifier"]
+                    sw.name = device["name"].text
+                    if FunctionBit.temperatureSensor.contained(in: sw.functions) {
                         if let celsius = Double(device["temperature"]["celsius"].text ?? "") {
                             sw.celsius = 0.1 * celsius
                         }
+                    }
+                    if FunctionBit.powermeter.contained(in: sw.functions) {
                         if let power = Double(device["powermeter"]["power"].text ?? "") {
                             sw.power = 1e-3 * power
                         }
                         if let energy = Double(device["powermeter"]["energy"].text ?? "") {
-                            sw.energy = energy
+                            sw.energy = 1e-3 * energy
                         }
                         if let voltage = Double(device["powermeter"]["voltage"].text ?? "") {
                             sw.voltage = 1e-3 * voltage
                         }
-                        sw.productname = device.attributes["productname"]
-                        sw.manufacturer = device.attributes["manufacturer"]
-                        sw.fwversion = device.attributes["fwversion"]
+                    }
+                    if FunctionBit.outletSwitch.contained(in: sw.functions) {
+                        sw.isOn = Int(device["switch"]["state"].text ?? "") == 1
                         foundSwitches.append(sw)
                     }
                 }
@@ -97,31 +115,44 @@ extension DevicesViewController: NSCollectionViewDataSource, NSCollectionViewDel
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         if let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SwitchCollectionViewItem"), for: indexPath) as? SwitchCollectionViewItem {
             let sw = switches[indexPath.item]
-            item.deviceNameLabel.stringValue = sw.name ?? ""
+            item.deviceNameLabel.stringValue = sw.name ?? NSLocalizedString("<unknown>", comment: "unknown")
             item.deviceStateButton.state = sw.isOn ? .on : .off
+            item.deviceStateButton.target = self
+            item.deviceStateButton.action = #selector(switchClicked)
+            item.deviceStateButton.tag = indexPath.item
+            item.deviceStateButton.image?.isTemplate = true
+            item.deviceStateButton.bezelStyle = .inline
+            item.deviceStateButton.isBordered = false
+            item.deviceStateButton.contentTintColor = sw.isOn ? NSColor.green : NSColor.gray
+            switchButtons.insert(item.deviceStateButton, at: indexPath.item)
+            debugPrint("switchButtons.count = \(switchButtons.count)")
             if let manufacturer = sw.manufacturer,
                 let productname = sw.productname {
                 item.productNameLabel.stringValue = "\(manufacturer) \(productname)"
+            } else {
+                item.productNameLabel.stringValue = ""
             }
             if let celsius = sw.celsius {
-                item.temperatureLabel.stringValue = "\(celsius.rounded(toPlaces: 1)) °C"
+                item.temperatureLabel.stringValue = String(format: "%.1f °C", celsius)
+            } else {
+                item.temperatureLabel.stringValue = ""
             }
             var powermeterData: [String] = []
             if let energy = sw.energy {
-                powermeterData.append("\(energy.rounded(toPlaces: 2)) Wh")
+                powermeterData.append(String(format: "%.1f kWh (%.2f €)", energy, energy * euroPerKWh))
             }
             if let power = sw.power {
-                powermeterData.append("\(power.rounded(toPlaces: 2)) W")
+                powermeterData.append(String(format: "%.1f W", power))
             }
             if let voltage = sw.voltage {
-                powermeterData.append("\(voltage.rounded(toPlaces: 2)) V")
+                powermeterData.append(String(format: "%.1f V", voltage))
             }
             item.energyLabel.stringValue = powermeterData.isEmpty
                 ? ""
                 : powermeterData.joined(separator: " / ")
             return item
         }
-        return NSCollectionViewItem()
+        return SwitchCollectionViewItem()
     }
 }
 

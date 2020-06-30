@@ -18,11 +18,12 @@
 		65002D7424A9B05D003B6E7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7324A9B05D003B6E7A /* MainViewController.swift */; };
 		65002D7724A9BDB1003B6E7A /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7624A9BDB1003B6E7A /* Defaults.swift */; };
 		65002D7924A9C059003B6E7A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7824A9C059003B6E7A /* Utils.swift */; };
-		65D16BCD24A9C86A002D79F6 /* FritzComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BCC24A9C86A002D79F6 /* FritzComm.swift */; };
+		65D16BCD24A9C86A002D79F6 /* Comm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BCC24A9C86A002D79F6 /* Comm.swift */; };
 		65D16BD024A9D984002D79F6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BCF24A9D984002D79F6 /* DevicesViewController.swift */; };
 		65D16BD724A9F62C002D79F6 /* SwitchCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */; };
 		65D16BD824A9F62C002D79F6 /* SwitchCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D16BD624A9F62C002D79F6 /* SwitchCollectionViewItem.xib */; };
 		65D16BDA24AA269A002D79F6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BD924AA269A002D79F6 /* Extensions.swift */; };
+		65D16BDC24AB0853002D79F6 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BDB24AB0853002D79F6 /* Switch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +61,12 @@
 		65002D7324A9B05D003B6E7A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65002D7624A9BDB1003B6E7A /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		65002D7824A9C059003B6E7A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		65D16BCC24A9C86A002D79F6 /* FritzComm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FritzComm.swift; sourceTree = "<group>"; };
+		65D16BCC24A9C86A002D79F6 /* Comm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comm.swift; sourceTree = "<group>"; };
 		65D16BCF24A9D984002D79F6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewItem.swift; sourceTree = "<group>"; };
 		65D16BD624A9F62C002D79F6 /* SwitchCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCollectionViewItem.xib; sourceTree = "<group>"; };
 		65D16BD924AA269A002D79F6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		65D16BDB24AB0853002D79F6 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +126,9 @@
 				65002D6C24A8D62B003B6E7A /* MD5.swift */,
 				65002D7624A9BDB1003B6E7A /* Defaults.swift */,
 				65002D7824A9C059003B6E7A /* Utils.swift */,
-				65D16BCC24A9C86A002D79F6 /* FritzComm.swift */,
-				65D16BCE24A9CA50002D79F6 /* Views */,
-				65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */,
-				65D16BD624A9F62C002D79F6 /* SwitchCollectionViewItem.xib */,
 				65D16BD924AA269A002D79F6 /* Extensions.swift */,
+				65D16BDD24AB0BF7002D79F6 /* Fritz */,
+				65D16BCE24A9CA50002D79F6 /* Views */,
 			);
 			path = FritzSwitch;
 			sourceTree = "<group>";
@@ -157,8 +157,19 @@
 				65002D7324A9B05D003B6E7A /* MainViewController.swift */,
 				65002D4224A8C748003B6E7A /* LoginViewController.swift */,
 				65D16BCF24A9D984002D79F6 /* DevicesViewController.swift */,
+				65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */,
+				65D16BD624A9F62C002D79F6 /* SwitchCollectionViewItem.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		65D16BDD24AB0BF7002D79F6 /* Fritz */ = {
+			isa = PBXGroup;
+			children = (
+				65D16BCC24A9C86A002D79F6 /* Comm.swift */,
+				65D16BDB24AB0853002D79F6 /* Switch.swift */,
+			);
+			path = Fritz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D16BD024A9D984002D79F6 /* DevicesViewController.swift in Sources */,
-				65D16BCD24A9C86A002D79F6 /* FritzComm.swift in Sources */,
+				65D16BCD24A9C86A002D79F6 /* Comm.swift in Sources */,
 				65002D4324A8C748003B6E7A /* LoginViewController.swift in Sources */,
+				65D16BDC24AB0853002D79F6 /* Switch.swift in Sources */,
 				65002D4124A8C748003B6E7A /* AppDelegate.swift in Sources */,
 				65002D7724A9BDB1003B6E7A /* Defaults.swift in Sources */,
 				65D16BDA24AA269A002D79F6 /* Extensions.swift in Sources */,
@@ -482,6 +494,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.FritzSwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -503,6 +516,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.FritzSwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
