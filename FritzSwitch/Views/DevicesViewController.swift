@@ -18,7 +18,6 @@ class DevicesViewController: NSViewController {
             switchCollectionView.reloadData()
         }
     }
-    private var switchButtons: [NSButton] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +52,9 @@ class DevicesViewController: NSViewController {
                     ain: ain,
                     sid: sid,
                     onSuccess: { (isOn, ain) in
-                        if let idx = self.switches.firstIndex(where: { $0.identifier == ain }) {
-                            debugPrint(ain, isOn, idx)
+                        if let idx = self.switches.firstIndex(where: { $0.identifier == ain }), idx < self.switches.count {
+                            self.switches[idx].isOn = isOn
+                            self.switchCollectionView.reloadData()
                         }
                 },
                     onFailure: { (error, ain) in debugPrint(error, ain) })
@@ -124,8 +124,6 @@ extension DevicesViewController: NSCollectionViewDataSource, NSCollectionViewDel
             item.deviceStateButton.bezelStyle = .inline
             item.deviceStateButton.isBordered = false
             item.deviceStateButton.contentTintColor = sw.isOn ? NSColor.green : NSColor.gray
-            switchButtons.insert(item.deviceStateButton, at: indexPath.item)
-            debugPrint("switchButtons.count = \(switchButtons.count)")
             if let manufacturer = sw.manufacturer,
                 let productname = sw.productname {
                 item.productNameLabel.stringValue = "\(manufacturer) \(productname)"

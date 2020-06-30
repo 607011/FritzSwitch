@@ -11,7 +11,7 @@ class SwitchCollectionViewItem: NSCollectionViewItem {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+//        self.view.layer?.backgroundColor = CGColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1.0)
     }
     
 }

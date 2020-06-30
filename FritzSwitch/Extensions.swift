@@ -12,17 +12,16 @@ extension Double {
     }
 }
 
+// MARK: - RangeReplaceableCollection
 
-// MARK: - NSImage
-
-extension NSImage {
-    func tint(color: NSColor) -> NSImage {
-        let image = self.copy() as! NSImage
-        image.lockFocus()
-        color.set()
-        let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
-        imageRect.fill(using: .sourceAtop)
-        image.unlockFocus()
-        return image
+extension RangeReplaceableCollection {
+    public mutating func resize(_ size: Int, fillWith value: Iterator.Element) {
+        let c = count
+        if c < size {
+            append(contentsOf: repeatElement(value, count: c.distance(to: size)))
+        } else if c > size {
+            let newEnd = index(startIndex, offsetBy: size)
+            removeSubrange(newEnd ..< endIndex)
+        }
     }
 }
