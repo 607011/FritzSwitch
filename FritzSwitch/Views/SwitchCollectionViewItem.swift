@@ -11,7 +11,7 @@ class SwitchCollectionViewItem: NSCollectionViewItem {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.layer?.backgroundColor = CGColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1.0)
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor(named: "DeviceBox")?.cgColor
     }
-    
 }

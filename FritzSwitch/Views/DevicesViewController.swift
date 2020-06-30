@@ -21,6 +21,9 @@ class DevicesViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
+        view.wantsLayer = true
+        view.layer?.backgroundColor = CGColor.black
     }
 
     override func viewWillAppear() {
@@ -31,6 +34,16 @@ class DevicesViewController: NSViewController {
 
     override func viewWillDisappear() {
         timer?.invalidate()
+    }
+
+    fileprivate func configureCollectionView() {
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.itemSize = NSSize(width: 330.0, height: 120.0)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        flowLayout.minimumInteritemSpacing = 10.0
+        flowLayout.minimumLineSpacing = 10.0
+        switchCollectionView.collectionViewLayout = flowLayout
+        switchCollectionView.layer?.backgroundColor = CGColor.clear
     }
 
     @objc
@@ -123,7 +136,7 @@ extension DevicesViewController: NSCollectionViewDataSource, NSCollectionViewDel
             item.deviceStateButton.image?.isTemplate = true
             item.deviceStateButton.bezelStyle = .inline
             item.deviceStateButton.isBordered = false
-            item.deviceStateButton.contentTintColor = sw.isOn ? NSColor.green : NSColor.gray
+            item.deviceStateButton.contentTintColor = sw.isOn ? NSColor(named: "PowerOn") : NSColor(named: "PowerOff")
             if let manufacturer = sw.manufacturer,
                 let productname = sw.productname {
                 item.productNameLabel.stringValue = "\(manufacturer) \(productname)"
@@ -151,11 +164,5 @@ extension DevicesViewController: NSCollectionViewDataSource, NSCollectionViewDel
             return item
         }
         return SwitchCollectionViewItem()
-    }
-}
-
-extension DevicesViewController : NSCollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
-        return NSSize(width: 320, height: 111)
     }
 }
