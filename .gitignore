@@ -1,2 +1,4 @@
 .DS_Store
 FritzSwitch.xcodeproj/project.xcworkspace/xcshareddata/
+FritzSwitch.xcodeproj/xcshareddata/
+*.dmg
