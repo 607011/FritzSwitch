@@ -18,6 +18,7 @@
 		65002D7424A9B05D003B6E7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7324A9B05D003B6E7A /* MainViewController.swift */; };
 		65002D7724A9BDB1003B6E7A /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7624A9BDB1003B6E7A /* Defaults.swift */; };
 		65002D7924A9C059003B6E7A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65002D7824A9C059003B6E7A /* Utils.swift */; };
+		656F39B724ACC5D700ECF3D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656F39B624ACC5D700ECF3D6 /* Constants.swift */; };
 		65D16BCD24A9C86A002D79F6 /* Comm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BCC24A9C86A002D79F6 /* Comm.swift */; };
 		65D16BD024A9D984002D79F6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BCF24A9D984002D79F6 /* DevicesViewController.swift */; };
 		65D16BD724A9F62C002D79F6 /* SwitchCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */; };
@@ -61,6 +62,7 @@
 		65002D7324A9B05D003B6E7A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65002D7624A9BDB1003B6E7A /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		65002D7824A9C059003B6E7A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		656F39B624ACC5D700ECF3D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65D16BCC24A9C86A002D79F6 /* Comm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comm.swift; sourceTree = "<group>"; };
 		65D16BCF24A9D984002D79F6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		65D16BD524A9F62C002D79F6 /* SwitchCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				65002D4624A8C749003B6E7A /* Main.storyboard */,
 				65002D4924A8C749003B6E7A /* Info.plist */,
 				65002D4A24A8C749003B6E7A /* FritzSwitch.entitlements */,
+				656F39B624ACC5D700ECF3D6 /* Constants.swift */,
 				65002D6C24A8D62B003B6E7A /* MD5.swift */,
 				65002D7624A9BDB1003B6E7A /* Defaults.swift */,
 				65002D7824A9C059003B6E7A /* Utils.swift */,
@@ -182,6 +185,8 @@
 				65002D3924A8C748003B6E7A /* Sources */,
 				65002D3A24A8C748003B6E7A /* Frameworks */,
 				65002D3B24A8C748003B6E7A /* Resources */,
+				656F39B424ACA36400ECF3D6 /* Swiftlint */,
+				656F39B524ACBF4500ECF3D6 /* Update build number */,
 			);
 			buildRules = (
 			);
@@ -304,6 +309,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		656F39B424ACA36400ECF3D6 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		656F39B524ACBF4500ECF3D6 /* Update build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update build number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "branch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$PRODUCT_SETTINGS_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65002D3924A8C748003B6E7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -320,6 +364,7 @@
 				65002D7424A9B05D003B6E7A /* MainViewController.swift in Sources */,
 				65002D7924A9C059003B6E7A /* Utils.swift in Sources */,
 				65D16BD724A9F62C002D79F6 /* SwitchCollectionViewItem.swift in Sources */,
+				656F39B724ACC5D700ECF3D6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +540,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.FritzSwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -517,6 +563,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ersatzworld.FritzSwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

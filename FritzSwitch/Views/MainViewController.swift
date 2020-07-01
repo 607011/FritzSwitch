@@ -18,8 +18,9 @@ class MainViewController: NSViewController {
         fritzboxUsername = UserDefaults.standard.string(forKey: Key.fritzboxUsername.rawValue)
         fritzboxPassword = UserDefaults.standard.string(forKey: Key.fritzboxPassword.rawValue)
         sid = UserDefaults.standard.string(forKey: Key.sid.rawValue)
-        sidIssued = dateFormatter.date(from: UserDefaults.standard.string(forKey: Key.sidIssued.rawValue) ?? "") ?? Date.distantPast
-        NSLog("host = \(fritzboxHostname ?? ""), user = \(fritzboxUsername ?? ""), pass = \(fritzboxPassword ?? ""), sid = \(sid ?? ""), sidIssued = \(String(describing: sidIssued))")
+        sidIssued = dateFormatter.date(
+            from: UserDefaults.standard.string(forKey: Key.sidIssued.rawValue) ?? "") ?? Date.distantPast
+        NSLog("host = \(fritzboxHostname ?? ""), user = \(fritzboxUsername ?? ""), pass = \(fritzboxPassword ?? ""), sid = \(sid ?? ""), sidIssued = \(String(describing: sidIssued))") // swiftlint:disable:this line_length
         UserDefaults.standard.addObserver(self, forKeyPath: Key.sid.rawValue, options: .new, context: nil)
     }
 
@@ -40,17 +41,21 @@ class MainViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         print(Date().timeIntervalSince(sidIssued))
-        if Date().timeIntervalSince(sidIssued) > 120 {
+        if Date().timeIntervalSince(sidIssued) > Constant.maxSIDAge {
             showLogin()
         } else {
             showMain()
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?,  // swiftlint:disable:this block_based_kvo
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey: Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        NSLog("Key '\(String(describing: keyPath))' changed.")
         if keyPath == Key.sid.rawValue {
             sid = change?[.newKey] as? String
-            if sid != nil && sid != NoSID {
+            if sid != nil && sid != Constant.noSID {
                 showMain()
             }
         }

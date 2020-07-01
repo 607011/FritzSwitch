@@ -8,7 +8,7 @@ class SwitchCollectionViewItem: NSCollectionViewItem {
     @IBOutlet weak var productNameLabel: NSTextField!
     @IBOutlet weak var energyLabel: NSTextField!
     @IBOutlet weak var temperatureLabel: NSTextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true

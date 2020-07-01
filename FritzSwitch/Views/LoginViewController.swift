@@ -18,7 +18,8 @@ class LoginViewController: NSViewController {
     }
     private var sidIssued: Date? {
         didSet {
-            UserDefaults.standard.set(dateFormatter.string(from: sidIssued ?? Date.distantPast), forKey: Key.sidIssued.rawValue)
+            UserDefaults.standard.set(dateFormatter.string(from: sidIssued ?? Date.distantPast),
+                                      forKey: Key.sidIssued.rawValue)
         }
     }
 
@@ -46,7 +47,7 @@ class LoginViewController: NSViewController {
         let password = fritzboxPasswordTextField.stringValue
         disableUI()
         DispatchQueue.main.async {
-            checkCredentials(
+            getSID(
                 hostname: hostname,
                 username: username,
                 password: password,
@@ -60,7 +61,7 @@ class LoginViewController: NSViewController {
                 onFailure: { error in
                     self.enableUI()
                     self.statusLabel.textColor = .systemRed
-                    self.statusLabel.stringValue = error
+                    self.statusLabel.stringValue = error.localizedDescription
             })
         }
     }
@@ -68,7 +69,7 @@ class LoginViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.object(forKey: Key.sid.rawValue) != nil {
-            sid = UserDefaults.standard.string(forKey: Key.sid.rawValue) ?? NoSID
+            sid = UserDefaults.standard.string(forKey: Key.sid.rawValue) ?? Constant.noSID
         }
     }
 

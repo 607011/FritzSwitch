@@ -48,6 +48,6 @@ class Switch {
 
 extension Switch: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "\(String(describing: name)) \(String(describing: identifier)) \(String(describing: manufacturer)) \(String(describing: productname)) isOn=\(isOn)"
+        return "\(String(describing: name)) \(String(describing: identifier)) \(String(describing: manufacturer)) \(String(describing: productname)) isOn=\(isOn)" // swiftlint:disable:this line_length
     }
 }

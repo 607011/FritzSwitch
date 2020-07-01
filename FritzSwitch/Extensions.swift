@@ -16,10 +16,10 @@ extension Double {
 
 extension RangeReplaceableCollection {
     public mutating func resize(_ size: Int, fillWith value: Iterator.Element) {
-        let c = count
-        if c < size {
-            append(contentsOf: repeatElement(value, count: c.distance(to: size)))
-        } else if c > size {
+        let count = self.count
+        if count < size {
+            append(contentsOf: repeatElement(value, count: count.distance(to: size)))
+        } else if count > size {
             let newEnd = index(startIndex, offsetBy: size)
             removeSubrange(newEnd ..< endIndex)
         }

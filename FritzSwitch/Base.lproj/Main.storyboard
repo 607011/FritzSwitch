@@ -100,23 +100,6 @@
                                                 <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="KaW-ft-85H">
-                                            <connections>
-                                                <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
-                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
-                                            <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
-                                            </connections>
-                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -617,6 +600,12 @@
                                                 <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="aOi-ev-mON"/>
+                                        <menuItem title="Refresh device list …" keyEquivalent="r" id="ugw-hw-6WA">
+                                            <connections>
+                                                <action selector="refreshDeviceListInfos:" target="Voe-Tx-rLC" id="Zbl-Lc-uuK"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
@@ -676,9 +665,9 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FritzSwitch" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FritzSwitch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
@@ -819,23 +808,23 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="upz-e8-ZUj"/>
             </objects>
-            <point key="canvasLocation" x="318" y="837"/>
+            <point key="canvasLocation" x="974" y="778"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="bRD-cm-ctg">
             <objects>
                 <viewController storyboardIdentifier="deviceView" id="zae-nn-Jjm" customClass="MainViewController" customModule="FritzSwitch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="fdX-Ks-sBJ">
+                    <view key="view" id="fdX-Ks-sBJ" userLabel="View Container">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="317"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="gfl-mR-b5I">
+                            <containerView identifier="LoginViewContainer" translatesAutoresizingMaskIntoConstraints="NO" id="gfl-mR-b5I">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="317"/>
                                 <connections>
                                     <segue destination="XfG-lQ-9wD" kind="embed" id="Hgx-GG-Bfq"/>
                                 </connections>
                             </containerView>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Yue-ax-Mlq">
+                            <containerView identifier="MainViewContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Yue-ax-Mlq">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="317"/>
                                 <connections>
                                     <segue destination="KU0-oY-5QZ" kind="embed" id="9tR-OW-94M"/>
@@ -862,25 +851,26 @@
             </objects>
             <point key="canvasLocation" x="719" y="273.5"/>
         </scene>
-        <!--Devices View Controller-->
+        <!--Device List Infos View Controller-->
         <scene sceneID="MeA-23-o3Y">
             <objects>
-                <viewController id="KU0-oY-5QZ" customClass="DevicesViewController" customModule="FritzSwitch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Git-es-Lb6">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                <viewController title="Device List Infos View Controller" storyboardIdentifier="deviceListInfosViewController" id="KU0-oY-5QZ" customClass="DevicesViewController" customModule="FritzSwitch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" identifier="DeviceListInfosViewContainer" id="Git-es-Lb6">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkY-TX-Vcb">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkY-TX-Vcb">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="VfU-5B-jlq">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="258"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="WH4-RB-RlY">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="258"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="29O-PC-z0v">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="330" height="120"/>
+                                                <edgeInsets key="sectionInset" left="10" right="10" top="10" bottom="10"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="DeviceList"/>
                                             <connections>
@@ -894,26 +884,32 @@
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Q2q-NS-cf1">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Q2q-NS-cf1">
+                                    <rect key="frame" x="434" y="1" width="15" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TLp-pV-cbH">
+                                <rect key="frame" x="209" y="114" width="32" height="32"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="JkY-TX-Vcb" secondAttribute="trailing" id="HrQ-31-1ho"/>
                             <constraint firstItem="JkY-TX-Vcb" firstAttribute="top" secondItem="Git-es-Lb6" secondAttribute="top" id="Pw3-HV-mDG"/>
                             <constraint firstAttribute="bottom" secondItem="JkY-TX-Vcb" secondAttribute="bottom" id="h9H-fG-ePd"/>
+                            <constraint firstItem="TLp-pV-cbH" firstAttribute="centerY" secondItem="Git-es-Lb6" secondAttribute="centerY" id="htH-Vm-qVt"/>
+                            <constraint firstItem="TLp-pV-cbH" firstAttribute="centerX" secondItem="Git-es-Lb6" secondAttribute="centerX" id="oGc-TP-SNh"/>
                             <constraint firstItem="JkY-TX-Vcb" firstAttribute="leading" secondItem="Git-es-Lb6" secondAttribute="leading" id="sVd-46-IGO"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="spinner" destination="TLp-pV-cbH" id="x5z-VI-iIs"/>
                         <outlet property="switchCollectionView" destination="WH4-RB-RlY" id="AJs-XE-3ee"/>
                     </connections>
                 </viewController>
                 <customObject id="Zan-l8-JPh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="786"/>
+            <point key="canvasLocation" x="493" y="888"/>
         </scene>
     </scenes>
     <resources>
