@@ -7,6 +7,7 @@ import SwiftyXMLParser
 class DevicesViewController: NSViewController {
     @IBOutlet weak var switchCollectionView: NSCollectionView!
     @IBOutlet weak var spinner: NSProgressIndicator!
+    @IBOutlet weak var statusLabel: NSTextField!
 
     private let euroPerKWh: Double = 0.29
     private let refreshInterval: TimeInterval = 30.0
@@ -50,6 +51,7 @@ class DevicesViewController: NSViewController {
                                                selector: #selector(refresh),
                                                name: .refreshDeviceListInfos,
                                                object: nil)
+        statusLabel.stringValue = ""
     }
 
     override func viewWillDisappear() {
@@ -60,6 +62,7 @@ class DevicesViewController: NSViewController {
     fileprivate func showSpinner() {
         spinner.isHidden = false
         spinner.startAnimation(self)
+        statusLabel.stringValue = ""
     }
 
     fileprivate func hideSpinner() {
@@ -96,11 +99,9 @@ class DevicesViewController: NSViewController {
                             self.switchCollectionView.reloadData()
                             self.hideSpinner()
                         }
-                },
-                    onFailure: { (error, ain) in
-                        self.hideSpinner()
-
-                        debugPrint(error, ain)
+                }, onFailure: { (error, ain) in
+                    self.hideSpinner()
+                    self.statusLabel.stringValue = "ERROR: \(error.localizedDescription) (ain=\(ain))"
                 })
             }
         }
@@ -137,7 +138,7 @@ class DevicesViewController: NSViewController {
                 foundSwitches.append(sw)
             }
         }
-        self.switches = foundSwitches
+        self.switches = foundSwitches.sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
 
     func refreshSID() {
@@ -152,11 +153,10 @@ class DevicesViewController: NSViewController {
                     self.sid = newSID
                     self.sidIssued = Date()
                     self.loadDeviceListInfos()
-            },
-                onFailure: { error in
-                    NSLog("ERROR checking credentials: \(error)")
-                    self.sid = nil
-                    self.sidIssued = Date.distantPast
+            }, onFailure: { error in
+                self.statusLabel.stringValue = "ERROR checking credentials: \(error.localizedDescription)"
+                self.sid = nil
+                self.sidIssued = Date.distantPast
             })
         }
     }
@@ -164,12 +164,10 @@ class DevicesViewController: NSViewController {
     func loadDeviceListInfos() {
         guard let hostname = hostname else { return }
         guard let sid = sid else { return }
-
-        showSpinner()
-
-        NSLog("DevicesViewController.loadDeviceListInfos() now = \(Date()), " +
-            "sidIssued = \(sidIssued), dt = \(Date().timeIntervalSince(sidIssued))")
+        //        NSLog("DevicesViewController.loadDeviceListInfos() now = \(Date()), " +
+        //            "sidIssued = \(sidIssued), dt = \(Date().timeIntervalSince(sidIssued))")
         if Date().timeIntervalSince(sidIssued) < Constant.maxSIDAge {
+            showSpinner()
             DispatchQueue.main.async {
                 getDeviceListInfos(
                     from: hostname,
@@ -179,13 +177,17 @@ class DevicesViewController: NSViewController {
                         self.hideSpinner()
                         switch error {
                         case .emptyResponse:
+                            self.statusLabel.stringValue = "Empty response from Fritzbox, trying to fetch a new SID …"
+                            self.showSpinner()
                             self.refreshSID()
-                        default: break
+                        default:
+                            self.statusLabel.stringValue = "ERROR fetching device list infos: " +
+                                error.localizedDescription
                         }
-                        NSLog("ERROR fetching device list infos: \(error)")
                 })
             }
         } else {
+            showSpinner()
             refreshSID()
         }
     }
